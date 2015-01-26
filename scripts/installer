@@ -16,8 +16,7 @@ sudo -v
 echo "Willst du zsh verwenden und oh-my-zsh installieren?"
 echo 'y / n'
 read usezsh
-[[ "$usezsh" == 'y' ]] && zsh
-curl -L http://install.ohmyz.sh | sh
+[[ "$usezsh" == 'y' ]] && zsh && curl -L http://install.ohmyz.sh | sh
 
 #Install Homebrew (http://brew.sh/)
 echo "Als nächstes installieren wir Homebrew"
