@@ -36,5 +36,5 @@ cd $dir
 git clone --recursive https://github.com/Jurikay/juridotfiles.git
 
 sleep 1
-
+cd $dir
 bash /scripts/installer

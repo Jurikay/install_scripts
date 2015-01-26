@@ -1,6 +1,6 @@
 #! /bin/bash
 # Jureks install os X Script
-
+clear
 echo "Hallo! Ich konfiguriere dein OS!"
 sleep .5
 echo 'Willst du wirklich fortfahren?'
