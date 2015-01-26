@@ -1,0 +1,9 @@
+#Frage nach brew stuff
+echo "sollen wir brauchbare Tools mit brew brauen?"
+echo "y / n"
+read brewstuff
+[[ "$brewstuff" == 'y' ]] && sudo bash /Users/jurekbaumann/Desktop/brew
+
+
+sleep 1
+echo "kommt das hier an?"

@@ -1,0 +1,67 @@
+#! /bin/bash
+# Jureks install os X Script
+
+echo "Hallo! Ich konfiguriere dein OS!"
+sleep .5
+echo 'Willst du wirklich fortfahren?'
+echo 'y / n'
+read proceed
+[[ "$proceed" == 'n' ]] && exit -0
+
+#Frage vorab nach dem Passwort
+echo "Okay als erstes bräuchte ich dein Passwort"
+sudo -v
+
+#Frage nach oh-my-zsh
+echo "Willst du zsh verwenden und oh-my-zsh installieren?"
+echo 'y / n'
+read usezsh
+[[ "$usezsh" == 'y' ]] && zsh
+curl -L http://install.ohmyz.sh | sh
+
+#Install Homebrew (http://brew.sh/)
+echo "Als nächstes installieren wir Homebrew"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+
+#Install Updates (Os, brew, ruby, npm)
+echo "Jetzt werden Software Updates, updates für Brew, Ruby und NPM installiert"
+sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update
+echo "Fertig!"
+sleep .5
+
+#Frage nach Java
+echo 'Willst du die aktuelle Java verion?'
+echo 'y / n'
+read javaja
+[[ "$javaja" == 'y' ]] && java -version
+
+#Frage nach brew stuff
+echo "sollen wir brauchbare Tools mit brew brauen?"
+echo "y / n"
+read brewstuff
+[[ "$brewstuff" == 'y' ]] && sudo bash /scripts/brew
+
+#Frage nach Os X Config
+echo "Soll ich diverse Os X Funktionen konfigurieren?"
+echo "y / n"
+read configosx
+[[ "$configosx" == 'y' ]] && sudo bash /osx/configosx
+
+#Frage nach Programmen
+echo "Soll ich die Downloadpages wichtiger Programme öffnen?"
+echo "y / n"
+read installieren
+[[ "$installieren" == 'y' ]] && sudo bash /scripts/installieren
+
+#Quicklook plugins (http://github.com/sindresorhus/quick-look-plugins)
+which brew
+  if [[ $? != 0 ]]; then
+    echo "Sollen Quicklook Plugins installiert werden?"
+    echo "y / n"
+	read quicklook
+	[[ "$quicklook" == 'y' ]] && brew tap phinze/homebrew-cask
+	brew install brew-cask
+    brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
+  fi
+  
