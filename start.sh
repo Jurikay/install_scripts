@@ -30,10 +30,7 @@ read devtools
 [[ "$devtools" == 'y' ]] && echo "oke"
 [[ "$devtools" != 'y' ]] && bash $HOME/Desktop/test5.sh
 
-dir="$HOME/jurisdotfiles"
-mkdir -p $dir
-cd $dir
-git clone --recursive https://github.com/Jurikay/juridotfiles.git
+git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 
 sleep 1
-bash $dir/juridotfiles/scripts/installer
+bash $HOME/dev/juridotfiles/scripts/installer
