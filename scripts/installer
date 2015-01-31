@@ -24,7 +24,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 #Install Updates (Os, brew, ruby, npm)
 echo "Jetzt werden Software Updates und updates für Brew installiert."
-sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup;
+softwareupdate -i -a; brew update; brew upgrade; brew cleanup;
 echo "Fertig!"
 sleep .5
 
@@ -51,7 +51,7 @@ bash $HOME/dev/scripts/installieren
 
 #Quicklook plugins (http://github.com/sindresorhus/quick-look-plugins)
 read which brew
-  if [[ $? == /usr/local/bin/brew ]]; then
+  if [[ $? = /usr/local/bin/brew ]]; then
     echo "Sollen Programme und Quicklook PlugIns mit Brew-Cask installiert werden?"
     echo "y / n"
 	read quicklook
