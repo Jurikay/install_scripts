@@ -39,28 +39,28 @@ read javaja
 echo "sollen wir brauchbare Tools mit brew brauen?"
 echo "y / n"
 read brewstuff
-[[ "$brewstuff" == 'y' ]] && sudo bash /scripts/brew
+[[ "$brewstuff" == 'y' ]] && sudo bash $HOME/dev/scripts/brew
 
 #Frage nach Os X Config
 echo "Soll ich diverse Os X Funktionen konfigurieren?"
 echo "y / n"
 read configosx
-[[ "$configosx" == 'y' ]] && sudo bash /osx/configosx
+[[ "$configosx" == 'y' ]] && sudo bash $HOME/dev/osx/configosx
 
 #Frage nach Programmen
 echo "Soll ich die Downloadpages wichtiger Programme öffnen?"
 echo "y / n"
 read installieren
-[[ "$installieren" == 'y' ]] && sudo bash /scripts/installieren
+[[ "$installieren" == 'y' ]] && sudo bash $HOME/dev/scripts/installieren
 
 #Quicklook plugins (http://github.com/sindresorhus/quick-look-plugins)
 which brew
   if [[ $? != 0 ]]; then
-    echo "Sollen Quicklook Plugins installiert werden?"
+    echo "Sollen Programme und Quicklook PlugIns mit Brew-Cask installiert werden?"
     echo "y / n"
 	read quicklook
 	[[ "$quicklook" == 'y' ]] && brew tap phinze/homebrew-cask
-	brew install brew-cask
+	brew install caskroom/cask/brew-cask
     brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
   fi
   

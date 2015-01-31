@@ -7,6 +7,7 @@ sleep .5
 echo "Sollen wir starten?"
 echo "y / n"
 read starten
+sleep .5
 [[ "$starten" == 'y' ]] && echo "oke undlos"
 [[ "$starten" != 'y' ]] && echo "na DANN Nicht!" && exit 0
 
