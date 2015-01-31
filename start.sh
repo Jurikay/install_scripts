@@ -28,7 +28,7 @@ echo "Sind die Tools installiert? (Abbrechen mit strg-c)"
 echo "y / n"
 read devtools
 [[ "$devtools" == 'y' ]] && echo "oke"
-[[ "$devtools" != 'y' ]] && curl -fsSL https://raw.githubusercontent.com/Jurikay/juridotfiles/master/start.sh
+[[ "$devtools" != 'y' ]] && exit 0
 
 git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 
