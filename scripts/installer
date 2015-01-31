@@ -1,3 +1,4 @@
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #!/usr/bin/env bash
 # Jureks install os X Script
 clear
@@ -24,10 +25,10 @@ read usezsh
 echo ""
 echo "Als nächstes installieren wir Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update; brew upgrade; brew cleanup; brew install caskroom/cask/brew-cask
+brew doctor; brew update; brew upgrade; brew cleanup; brew install caskroom/cask/brew-cask
+clear
 
 #Install Updates (Os, brew, ruby, npm)
-echo ""
 echo "Jetzt werden Software Updates und updates für Brew installiert."
 softwareupdate -i -a
 echo "Fertig!"
