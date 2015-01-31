@@ -31,6 +31,8 @@ read devtools
 [[ "$devtools" == 'y' ]] && echo "oke"
 [[ "$devtools" != 'y' ]] && exit 1
 
+rm -r $HOME/dev
+
 git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 
 sleep 1
