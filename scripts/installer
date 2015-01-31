@@ -25,7 +25,7 @@ brew update
 
 #Install Updates (Os, brew, ruby, npm)
 echo "Jetzt werden Software Updates, updates für Brew, Ruby und NPM installiert"
-sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update
+sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install; npm -g; npm update -g; sudo gem update --system; sudo gem update
 echo "Fertig!"
 sleep .5
 
