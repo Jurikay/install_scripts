@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # Jureks install os X Script
 clear
 echo "Hallo! Ich konfiguriere dein OS!"
@@ -21,11 +21,10 @@ read usezsh
 #Install Homebrew (http://brew.sh/)
 echo "Als nächstes installieren wir Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
 
 #Install Updates (Os, brew, ruby, npm)
-echo "Jetzt werden Software Updates, updates für Brew, Ruby und NPM installiert"
-sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install; npm -g; npm update -g; sudo gem update --system; sudo gem update
+echo "Jetzt werden Software Updates und updates für Brew."
+sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup;
 echo "Fertig!"
 sleep .5
 
@@ -39,19 +38,19 @@ read javaja
 echo "sollen wir brauchbare Tools mit brew brauen?"
 echo "y / n"
 read brewstuff
-[[ "$brewstuff" == 'y' ]] && sudo bash $HOME/dev/scripts/brew
+[[ "$brewstuff" == 'y' ]] && bash $HOME/dev/scripts/brew
 
 #Frage nach Os X Config
 echo "Soll ich diverse Os X Funktionen konfigurieren?"
 echo "y / n"
 read configosx
-[[ "$configosx" == 'y' ]] && sudo bash $HOME/dev/osx/configosx
+[[ "$configosx" == 'y' ]] && bash $HOME/dev/osx/configosx
 
 #Frage nach Programmen
 echo "Soll ich die Downloadpages wichtiger Programme öffnen?"
 echo "y / n"
 read installieren
-[[ "$installieren" == 'y' ]] && sudo bash $HOME/dev/scripts/installieren
+[[ "$installieren" == 'y' ]] && bash $HOME/dev/scripts/installieren
 
 #Quicklook plugins (http://github.com/sindresorhus/quick-look-plugins)
 which brew
