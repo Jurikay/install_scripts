@@ -9,51 +9,60 @@ read proceed
 [[ "$proceed" == 'n' ]] && exit -0
 
 #Frage vorab nach dem Passwort
+echo ""
 echo "Okay als erstes bräuchte ich dein Passwort"
 sudo -v
 
 #Frage nach oh-my-zsh
+echo ""
 echo "Willst du zsh verwenden und oh-my-zsh installieren?"
 echo 'y / n'
 read usezsh
 [[ "$usezsh" == 'y' ]] && curl -L http://install.ohmyz.sh | sh
 
 #Install Homebrew (http://brew.sh/)
+echo ""
 echo "Als nächstes installieren wir Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update; brew upgrade; brew cleanup; brew install caskroom/cask/brew-cask
 
 #Install Updates (Os, brew, ruby, npm)
+echo ""
 echo "Jetzt werden Software Updates und updates für Brew installiert."
 softwareupdate -i -a
 echo "Fertig!"
 sleep .5
 
 #Frage nach Java
+echo ""
 echo 'Willst du die aktuelle Java verion?'
 echo 'y / n'
 read javaja
 [[ "$javaja" == 'y' ]] && java -version
 
 #Frage nach brew stuff
+echo ""
 echo "sollen wir brauchbare Tools mit brew brauen?"
 echo "y / n"
 read brewstuff
 [[ "$brewstuff" == 'y' ]] && bash -v $HOME/dev/scripts/brew
 
 #Frage nach Os X Config
+echo ""
 echo "Soll ich diverse Os X Funktionen konfigurieren?"
 echo "y / n"
 read defaults
 [[ "$defaults" == 'y' ]] && bash -v $HOME/dev/osx/defaults
 
 #Frage nach Programmen
+echo ""
 echo "Soll ich Downloadlinks für essenzielle Programme öffnen?"
 echo "y / n"
 read programme
 [[ "$programme" == 'y' ]] && bash -v $HOME/dev/scripts/installieren
 
 #Frage nach UI
+echo ""
 echo "Sollen Finder und Interface Einstellungen vorgenommen werden?"
 echo "y / n"
 read configosx
@@ -63,8 +72,11 @@ read configosx
 #######################################################################
 
 #Frage nach Neustart
+sleep .5
+clear
 echo "Für einige der Änderungen muss der Computer neugestartet werden."
 sleep .5
+echo ""
 echo "Jetzt neu starten?"
 echo "y / n"
 read neustart
