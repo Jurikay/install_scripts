@@ -47,14 +47,11 @@ read configosx
 [[ "$configosx" == 'y' ]] && bash $HOME/dev/osx/configosx
 
 #Frage nach Programmen
-echo "Soll ich die Downloadpages wichtiger Programme öffnen?"
-echo "y / n"
-read installieren
-[[ "$installieren" == 'y' ]] && bash $HOME/dev/scripts/installieren
+bash $HOME/dev/scripts/installieren
 
 #Quicklook plugins (http://github.com/sindresorhus/quick-look-plugins)
 which brew
-  if [[ $? != 0 ]]; then
+  if [[ $? == /usr/local/bin/brew ]]; then
     echo "Sollen Programme und Quicklook PlugIns mit Brew-Cask installiert werden?"
     echo "y / n"
 	read quicklook
