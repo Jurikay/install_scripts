@@ -35,4 +35,3 @@ git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 sleep 1
 
 bash $HOME/dev/scripts/installer
-tes
