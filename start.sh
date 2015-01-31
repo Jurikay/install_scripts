@@ -28,7 +28,7 @@ echo "Sind die Tools installiert? (Abbrechen mit strg-c)"
 echo "y / n"
 read devtools
 [[ "$devtools" == 'y' ]] && echo "oke"
-[[ "$devtools" != 'y' ]] && exit 0
+[[ "$devtools" != 'y' ]] && exit 1
 
 git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 
