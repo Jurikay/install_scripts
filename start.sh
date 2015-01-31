@@ -10,7 +10,7 @@ read starten
 [[ "$starten" == 'y' ]] && echo "oke undlos"
 [[ "$starten" != 'y' ]] && echo "na DANN Nicht!" && exit 0
 
-
+sleep 1
 
 # Check XCode command line tools
 function checkXCode() {
@@ -31,7 +31,6 @@ function checkXCode() {
 }
 
 
-bash $HOME/Desktop/test5.sh
 
 git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 
