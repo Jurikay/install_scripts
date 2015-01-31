@@ -21,10 +21,11 @@ read usezsh
 #Install Homebrew (http://brew.sh/)
 echo "Als nächstes installieren wir Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update; brew upgrade; brew cleanup; brew install caskroom/cask/brew-cask
 
 #Install Updates (Os, brew, ruby, npm)
 echo "Jetzt werden Software Updates und updates für Brew installiert."
-softwareupdate -i -a; brew update; brew upgrade; brew cleanup;
+softwareupdate -i -a
 echo "Fertig!"
 sleep .5
 
@@ -38,25 +39,33 @@ read javaja
 echo "sollen wir brauchbare Tools mit brew brauen?"
 echo "y / n"
 read brewstuff
-[[ "$brewstuff" == 'y' ]] && bash $HOME/dev/scripts/brew
+[[ "$brewstuff" == 'y' ]] && bash -v $HOME/dev/scripts/brew
 
 #Frage nach Os X Config
 echo "Soll ich diverse Os X Funktionen konfigurieren?"
 echo "y / n"
-read configosx
-[[ "$configosx" == 'y' ]] && bash $HOME/dev/osx/configosx
+read defaults
+[[ "$defaults" == 'y' ]] && bash $HOME/dev/osx/defaults
 
 #Frage nach Programmen
-bash $HOME/dev/scripts/installieren
+echo "Soll ich Downloadlinks für essenzielle Programme öffnen?"
+echo "y / n"
+read programme
+[[ "$programme" == 'y' ]] && bash -v $HOME/dev/scripts/installieren
 
-#Quicklook plugins (http://github.com/sindresorhus/quick-look-plugins)
-read which brew
-  if [[ $? = /usr/local/bin/brew ]]; then
-    echo "Sollen Programme und Quicklook PlugIns mit Brew-Cask installiert werden?"
-    echo "y / n"
-	read quicklook
-	[[ "$quicklook" == 'y' ]] && brew tap phinze/homebrew-cask
-	brew install caskroom/cask/brew-cask
-    brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
-  fi
-  
+#Frage nach UI
+echo "Sollen Finder und Interface Einstellungen vorgenommen werden?"
+echo "y / n"
+read configosx
+[[ "$configosx" == 'y' ]] && bash -v $HOME/dev/scripts/configosx
+
+
+#######################################################################
+
+#Frage nach Neustart
+echo "Für einige der Änderungen muss der Computer neugestartet werden."
+sleep .5
+echo "Jetzt neu starten?"
+echo "y / n"
+read neustart
+[[ "$neustart" == 'y' ]] && shutdown -r now "Juris .dotfiles installiert. Starte neu."

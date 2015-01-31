@@ -1,6 +1,6 @@
 #! /bin/zsh
-open_apps() {
-  echo 'Install apps:'
+  echo 'Bitte sehr:'
+  sleep 1.5
   echo 'Firefox:'
   open http://www.mozilla.org/en-US/firefox/new/
   sleep 1
@@ -29,9 +29,3 @@ open_apps() {
   open http://www.videolan.org/vlc/index.html
   sleep 1
   echo 'Pixelmator!'
-}
-
-echo 'Should I give you links for system applications (e.g. Skype, Tower, VLC)?'
-echo 'n / y'
-read give_links
-[[ "$give_links" == 'y' ]] && open_apps
