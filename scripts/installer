@@ -69,6 +69,13 @@ echo "y / n"
 read configosx
 [[ "$configosx" == 'y' ]] && bash -v $HOME/dev/osx/configosx
 
+#Frage nach dotfiles
+echo ""
+echo "Sollen juris dotfiles in den benutzerordner kopiert werden?"
+echo "y / n"
+read dotfiles
+[[ "$dotfiles" == 'y' ]] && /bin/cp -f $HOME/dev/.bash_profile $HOME 
+
 echo"So fertig"
 
 #######################################################################

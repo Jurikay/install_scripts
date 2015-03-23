@@ -37,6 +37,4 @@ git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
 
 sleep 1
 
-open "$HOME/dev/SolarizedDark.terminal"
-
 bash $HOME/dev/scripts/installer
