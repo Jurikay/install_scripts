@@ -69,7 +69,7 @@ echo "y / n"
 read configosx
 [[ "$configosx" == 'y' ]] && bash -v $HOME/dev/osx/configosx
 
-echo"So fertig"
+echo"So fertig!"
 
 #######################################################################
 
