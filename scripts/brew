@@ -12,6 +12,20 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+# Jureks Stuff
+brew install archey
+brew install cmake
+brew install ffmpeg
+brew install findutils
+brew install htop-osx
+brew install libmatroska
+brew install libpng
+brew install mkvtoolnix
+brew install openssl
+brew install wget
+brew install toilet
+
+
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
@@ -32,15 +46,12 @@ brew install bash-completion
 brew install wget --with-iri
 
 
-
 # Install more recent versions of some OS X tools.
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
-
-
+brew install homebrew/php/php56 --with-gmp
 
 
 
@@ -54,7 +65,6 @@ brew install p7zip
 brew install pigz
 brew install pv
 brew install rename
-brew install rhino
 brew install speedtest_cli
 brew install tree
 brew install webkit2png
@@ -66,3 +76,8 @@ brew install node
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+echo "Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
+# running `chsh`."
+
+open "/etc/shells"

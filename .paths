@@ -1,0 +1,13 @@
+#   Set Paths
+#   ------------------------------------------------------------
+
+
+export PATH="/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin/user"
+
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+
+# Setting PATH for Python 3.5
+export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+
+# Setting PATH for GNU core Uitilities
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
