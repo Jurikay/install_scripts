@@ -14,30 +14,17 @@
 #  9.   Reminders & Notes
 #
 #  ---------------------------------------------------------------------------
-. ~/.aliases
-. ~/.functions
-
+. ~/dev/.aliases
+. ~/dev/.functions
+. ~/dev/.paths
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
-
 #   -------------------------------
 #   Mein Stuff
 #   -------------------------------
 #   Github API Token für Homebrew
     export HOMEBREW_GITHUB_API_TOKEN=640ed1c8f36cc4d35c1ca83609e7c8163925a2ed
-
-
-#   Change Prompt
-#   ------------------------------------------------------------
-    #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ '
-    #export PS1="\u@\h \n> "
-    #export PS1="\[$(tput setaf 1)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 3)\]\h\[$(tput setaf 2)\]: \[$(tput setaf 4)\]/\W\[$(tput setaf 2)\]\\[$(tput sgr0)\]\n> "
-    #export PS2="> "
-
-#   Set Paths
-#   ------------------------------------------------------------
-source $HOME/.paths
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -55,8 +42,6 @@ source $HOME/.paths
    export CLICOLOR=1
    #export LSCOLORS=ExFxBxDxCxegedabagacad
    export LSCOLORS=exfxcxdxbxexexaxaxfxfx
-
-
 
 #   cdf:  'Cd's to frontmost window of MacOS Finder
 #   ------------------------------------------------------
