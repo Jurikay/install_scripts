@@ -12,6 +12,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+brew doctor
 # Jureks Stuff
 brew install archey
 brew install cmake
