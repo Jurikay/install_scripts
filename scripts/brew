@@ -16,13 +16,10 @@ brew upgrade
 brew install archey
 brew install cmake
 brew install ffmpeg
-brew install findutils
 brew install htop-osx
 brew install libmatroska
 brew install libpng
 brew install mkvtoolnix
-brew install openssl
-brew install wget
 brew install toilet
 
 
@@ -77,7 +74,6 @@ brew install node
 # Remove outdated versions from the cellar.
 brew cleanup
 
-echo "Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`."
-
-open "/etc/shells"
+echo "Adding`/usr/local/bin/bash` to `/etc/shells`."
+echo "/n/usr/local/bin/bash" >> /private/etc/shells
+chsh

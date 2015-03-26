@@ -1,8 +1,8 @@
 #! /bin/zsh
   echo 'Bitte sehr:'
   sleep 1.5
-  echo 'Firefox:'
-  open http://www.mozilla.org/en-US/firefox/new/
+  echo 'Chrome beta:'
+  open https://www.google.de/chrome/browser/thankyou.html?platform=mac&statcb=1&extra=betachannel
   sleep 1
   echo 'Dropbox:'
   open https://www.dropbox.com
