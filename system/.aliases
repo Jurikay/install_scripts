@@ -8,7 +8,8 @@ alias syncsubl="rsync -av --force --delete --size-only --exclude '.DS_Store' --e
 
 alias vncs="networksetup -setairportpower en1 off; open vnc://192.168.178.46; networksetup -setairportpower en1 on"
 alias vncmb="open vnc://macbook.local"
-
+alias vnchm="open vnc://hackmac.local"
+alias vncsmb="open vnc://192.168.178.46"
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
