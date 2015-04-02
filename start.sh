@@ -33,8 +33,8 @@ read devtools
 
 rm -rf $HOME/dev
 
-git clone https://github.com/Jurikay/juridotfiles.git $HOME/dev
+git clone https://github.com/Jurikay/juridotfiles.git $HOME/juridotfiles
 
 sleep 1
 
-bash $HOME/dev/scripts/installer
+bash $HOME/juridotfiles/scripts/installer
