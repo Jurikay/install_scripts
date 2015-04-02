@@ -14,34 +14,22 @@
 #  9.   Reminders & Notes
 #
 #  ---------------------------------------------------------------------------
-. ~/dev/.aliases
-. ~/dev/.functions
-. ~/dev/.paths
-#   -------------------------------
-#   1.  ENVIRONMENT CONFIGURATION
-#   -------------------------------
-#   -------------------------------
-#   Mein Stuff
-#   -------------------------------
-#   Github API Token für Homebrew
-    export HOMEBREW_GITHUB_API_TOKEN=640ed1c8f36cc4d35c1ca83609e7c8163925a2ed
+. ~/.aliases
+. ~/.functions
+. ~/.paths
+. ~/.exports
 
-#   Set Default Editor (change 'Nano' to the editor of your choice)
+#   Change Prompt
 #   ------------------------------------------------------------
-    export EDITOR=/usr/bin/nano
+    #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\ '
+    #export PS1="\u@\h \n> "
+    #export PS1="\[$(tput setaf 1)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 3)\]\h\[$(tput setaf 2)\]: \[$(tput setaf 4)\]/\W\[$(tput setaf 2)\]\\[$(tput sgr0)\]\n> "
+    #export PS2="> "
 
-#   Set default blocksize for ls, df, du
-#   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
+#   Set Paths
 #   ------------------------------------------------------------
-    export BLOCKSIZE=1k
 
-#   Add color to terminal
-#   (this is all commented out as I use Mac Terminal Profiles)
-#   from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
-#   ------------------------------------------------------------
-   export CLICOLOR=1
-   #export LSCOLORS=ExFxBxDxCxegedabagacad
-   export LSCOLORS=exfxcxdxbxexexaxaxfxfx
+
 
 #   cdf:  'Cd's to frontmost window of MacOS Finder
 #   ------------------------------------------------------
