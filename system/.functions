@@ -1,3 +1,15 @@
+# Always list directory contents upon 'cd'
+function cd() { builtin cd "$@" && gls -hFl --color=auto; }
+
+# `o` with no arguments opens the current directory, otherwise opens the given location
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
+
 # Simple calculator
 function calc() {
 	local result="";
@@ -224,16 +236,6 @@ function v() {
 		vim .;
 	else
 		vim "$@";
-	fi;
-}
-
-# `o` with no arguments opens the current directory, otherwise opens the given
-# location
-function o() {
-	if [ $# -eq 0 ]; then
-		open .;
-	else
-		open "$@";
 	fi;
 }
 

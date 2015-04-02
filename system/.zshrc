@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-
 source $HOME/.aliases
 source $HOME/.functions
 source $HOME/.exports
