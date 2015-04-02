@@ -10,6 +10,7 @@ alias vncs="networksetup -setairportpower en1 off; open vnc://192.168.178.46; ne
 alias vncmb="open vnc://macbook.local"
 alias vnchm="open vnc://hackmac.local"
 alias vncsmb="open vnc://192.168.178.46"
+alias jurek="echo hallo"
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
@@ -93,7 +94,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo -e "\n${RED}Current network location :$NC " ; scselect
         echo -e "\n${RED}Public facing IP Address :$NC " ;myip
         echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
-        echo
     }
 
 
@@ -106,12 +106,6 @@ alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when boo
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
     alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
-
-#   finderShowHidden:   Show hidden files in Finder
-#   finderHideHidden:   Hide hidden files in Finder
-#   -------------------------------------------------------------------
-    alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
-    alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 
 #   cleanupLS:  Clean up LaunchServices to remove duplicates in the "Open With" menu
 #   -----------------------------------------------------------------------------------
