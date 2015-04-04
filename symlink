@@ -60,3 +60,15 @@ e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
   unset ASSETS
   unset SOURCE
   unset DEST
+
+  #
+  # Notify if Backups were created of any files above
+  #
+  e_header "---------- Processing Backups  ----------"
+  if [ -e $backup_dir ]; then
+    e_warning "Backups moved to "$backup_dir""
+  else
+    e_success "No Backups Created"
+  fi
+  e_header "---------- YAY! ALL DONE  ----------"
+fi
