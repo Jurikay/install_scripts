@@ -13,7 +13,7 @@ e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
   # dropbox_assets_dir: This is the location of your 'assets' directory
   # backup_dir: Desired path to a backup folder goes here here.
 
-   assets_dir="$HOME"/juridotfiles
+  assets_dir="$HOME"/juridotfiles
   backup_dir="$HOME"/Desktop/Backupslel/$(date "+%Y-%m-%d-%H_%M")
 
   sudo -v # ask for password only at the beginning
