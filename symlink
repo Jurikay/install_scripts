@@ -6,7 +6,7 @@ e_success() { printf "$(tput setaf 71)👌 %s$(tput sgr0)\n" "$@"
 }
 e_error() { printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
 }
-e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
+e_warning() { printf "$(tput setaf 153)%s$(tput sgr0)\n" "$@"
 }
 
   # Set Directory Locations
@@ -30,7 +30,10 @@ e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
   SOURCE="$assets_dir"/system/
   DEST="$HOME"/
 
-
+# Deleting .DS_Store Files
+  e_header "---------- Deleting .DS_Store Files ----------"
+  cd /Users/jurekbaumann/Dropbox/System
+  find . -type f -name '*.DS_Store' -ls -delete
   e_header "---------- Symlinking Dotfiles ----------"
 
   shopt -s dotglob    #show dot files
@@ -42,7 +45,7 @@ e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
       if [ -L "$DEST"`basename "$f"` ]; then
         e_success "Already Linked: "$DEST"`basename "$f"`"
       else
-        e_warning "Linking : `basename "$f"`"
+        e_warning "Linking: `basename "$f"`"
         if [ -f "$DEST"`basename "$f"` ]; then
           if [ ! -d "$backup_dir"/dotfiles ]; then
             mkdir -p "$backup_dir"/dotfiles
@@ -71,4 +74,3 @@ e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
     e_success "No Backups Created"
   fi
   e_header "---------- YAY! ALL DONE  ----------"
-fi
