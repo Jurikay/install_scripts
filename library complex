@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Set Colors
+e_header() { printf "\n$(tput setaf 141)%s$(tput sgr0)\n" "$@"
+}
+e_success() { printf "$(tput setaf 71)👌 %s$(tput sgr0)\n" "$@"
+}
+e_error() { printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
+}
+e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
+}
+
+  # Set Directory Locations
+  # assets_dir: This is the location of your 'assets' directory
+  # backup_dir: Desired path to a backup folder goes here here.
+  assets_dir="$HOME"/Dropbox/System/Library
+  backup_dir="$HOME"/Desktop/Backupslel/$(date "+%Y-%m-%d-%H_%M")
+
+  sudo -v # ask for password only at the beginning
+
+  e_header "---------- BEGINNING CONFIG SCRIPT ----------"
+  e_header "Hang tight.......here we go....."
+
+# 5.    Symlinks to ~/Library/Application Support/*/*
+  #
+  #       This script takes all directories found in
+  #       "$dropbox_assets_dir"/ApplicationSupportComples/*/
+  #       and symlinks them to ~/Library/Application Support/*/
+  #       i.e - Goes one level deep for symlinks.
+
+  e_header "---------- Symlinking into ~/Library/Application Support/*/ ----------"
+
+  # set IFS to allow spaces in names
+  SAVEIFS=$IFS
+  IFS=$(echo -en "\n\b")
+
+  ASSETS="$assets_dir"/ApplicationSupportComplex/*
+  SOURCE="$assets_dir"/ApplicationSupportComplex/
+  DEST="$HOME"/Library/Application\ Support/
+
+  if [ ! -d "$SOURCE" ]; then
+    e_error "Can't find source directory: $SOURCE"
+  else
+    for f in $ASSETS
+    do
+      ASSETS2="$SOURCE"`basename "$f"`/*
+      SOURCE2="$SOURCE"`basename "$f"`/
+      DEST2="$DEST"`basename "$f"`/
+      BACKUP2="$backup_dir"/`basename "$f"`/
+      if [ ! -d "$DEST2" ]; then
+        mkdir -p "$DEST2"
+      fi
+      for g in $ASSETS2
+      do
+        if [ -L "$DEST2"`basename "$g"` ]; then
+          e_success "Already Linked: "$DEST2"`basename "$g"`"
+        else
+          e_warning "Linking : "$SOURCE2"`basename "$g"`"
+          if [ -e "$DEST2"`basename "$g"` ]; then
+            if [ ! -d "$BACKUP2" ]; then
+              mkdir -p "$BACKUP2"
+            fi
+            mv "$DEST2"`basename "$g"` "$BACKUP2"`basename "$g"`
+            ln -s "$SOURCE2"`basename "$g"` "$DEST2"`basename "$g"`
+          else
+            ln -s "$SOURCE2"`basename "$g"` "$DEST2"`basename "$g"`
+          fi
+        fi
+      done
+    done
+  fi
+  # restore $IFS
+  IFS=$SAVEIFS
+
+  unset ASSETS
+  unset SOURCE
+  unset DEST
+  unset ASSETS2
+  unset SOURCE2
+  unset DEST2
+  unset BACKUP2
+  #
+  # Notify if Backups were created of any files above
+  #
+  e_header "---------- Processing Backups  ----------"
+  if [ -e $backup_dir ]; then
+    e_warning "Backups moved to "$backup_dir""
+  else
+    e_success "No Backups Created"
+  fi
+  e_header "---------- YAY! ALL DONE  ----------"
