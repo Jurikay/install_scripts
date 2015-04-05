@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Juris .dotfiles/ osx config."
+echo "Juris dotfiles/ osx config."
 
 sleep .5
 
@@ -31,7 +31,6 @@ read devtools
 [[ "$devtools" == 'y' ]] && echo "oke"
 [[ "$devtools" != 'y' ]] && exit 1
 
-rm -rf $HOME/dev
 
 git clone https://github.com/Jurikay/juridotfiles.git $HOME/juridotfiles
 
