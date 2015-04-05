@@ -7,14 +7,13 @@ e_success() { printf "$(tput setaf 71)👌 %s$(tput sgr0)\n" "$@"
 }
 e_error() { printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
 }
-e_warning() { printf "$(tput setaf 153)%s$(tput sgr0)\n" "$@"
+e_warning() { printf "$(tput setaf 153)⭕️ %s$(tput sgr0)\n" "$@"
 }
 
   # Set Directory Locations
-  # dropbox_assets_dir: This is the location of your 'assets' directory
+  # assets_dir: This is the location of your 'assets' directory
   # backup_dir: Desired path to a backup folder goes here here.
-
-  assets_dir="$HOME"/Dropbox/System/juridotfiles
+  assets_dir="$HOME"/Dropbox/System/Library
   backup_dir="$HOME"/Desktop/Backupslel/$(date "+%Y-%m-%d-%H_%M")
 
   sudo -v # ask for password only at the beginning
@@ -22,36 +21,38 @@ e_warning() { printf "$(tput setaf 153)%s$(tput sgr0)\n" "$@"
   e_header "---------- BEGINNING CONFIG SCRIPT ----------"
   e_header "Hang tight.......here we go....."
 
-  # 2.    Symlinks to ~/Dotfiles
+  # 4.    Symlinks to ~/Library/Application Support/*
   #
-  #       Takes all files found in "$assets_dir"/dotFiles/
-  #       and symlinks them to ~/
+  #       This script takes all directories found in
+  #       "$dropbox_assets_dir"/ApplicationSupportBase/
+  #       and symlinks them to ~/Library/Application Support/
 
-  ASSETS="$assets_dir"/system/*
-  SOURCE="$assets_dir"/system/
-  DEST="$HOME"/
+  e_header "---------- Symlinking into ~/Library/Application Support/ ----------"
 
-# Deleting .DS_Store Files
-  e_header "---------- Deleting .DS_Store Files ----------"
-  cd $HOME/Dropbox/System
-  find . -type f -name '*.DS_Store' -ls -delete
-  e_header "---------- Symlinking Dotfiles ----------"
+  ASSETS="$assets_dir"/ApplicationSupport/*
+  SOURCE="$assets_dir"/ApplicationSupport/
+  DEST="$HOME"/Library/Application\ Support/
 
-  shopt -s dotglob    #show dot files
+  # set IFS to allow spaces in names
+  SAVEIFS=$IFS
+  IFS=$(echo -en "\n\b")
   if [ ! -d "$SOURCE" ]; then
     e_error "Can't find source directory: $SOURCE"
   else
+    if [ ! -d "$DEST" ]; then
+      mkdir -p "$DEST"
+    fi
     for f in $ASSETS
     do
       if [ -L "$DEST"`basename "$f"` ]; then
         e_success "Already Linked: "$DEST"`basename "$f"`"
       else
-        e_warning "Linking: `basename "$f"`"
-        if [ -f "$DEST"`basename "$f"` ]; then
-          if [ ! -d "$backup_dir"/dotfiles ]; then
-            mkdir -p "$backup_dir"/dotfiles
+        e_warning "Linking : "$DEST"`basename "$f"`"
+        if [ -e "$DEST"`basename "$f"` ]; then
+          if [ ! -d "$backup_dir" ]; then
+            mkdir -p "$backup_dir"
           fi
-          mv "$DEST"`basename "$f"` "$backup_dir"/dotfiles/`basename "$f"`
+          mv "$DEST"`basename "$f"` "$backup_dir"/`basename "$f"`
           ln -s "$SOURCE"`basename "$f"` "$DEST"`basename "$f"`
         else
           ln -s "$SOURCE"`basename "$f"` "$DEST"`basename "$f"`
@@ -59,8 +60,8 @@ e_warning() { printf "$(tput setaf 153)%s$(tput sgr0)\n" "$@"
       fi
     done
   fi
-  source $HOME/.bash_profile
-  shopt -u dotglob    #reset dotglob
+  # restore $IFS
+  IFS=$SAVEIFS
   unset ASSETS
   unset SOURCE
   unset DEST
