@@ -249,8 +249,8 @@ function tre() {
 
 
 
-function countdown1(){  
-    local now=$(date +%s)
+function countdown1() {  
+    local now=$((date + %s))
     local end=$((now + $1))
     while (( now < end )); do   
         printf "%s\r" "$(date -u -d @$((end - now)) +%T)"  
@@ -258,4 +258,27 @@ function countdown1(){
         now=$(date +%s)
     done  
     echo
+}
+
+function countdown() {
+        min=$1
+        sec=1
+        while [ $min -ge 0 ]; do
+                while [ $sec -ge 0 ]; do
+                        echo -ne "$min:$sec\033[0K\r"
+                        sec=$((sec-1))
+                        sleep 1
+                done
+                sec=59
+                min=$((min-1))
+        done
+        echo
+        tput bel
+        sleep .2
+        tput bel
+        sleep .2
+        tput bel
+        sleep .5
+        tput bel
+        echo "countdown over"
 }
