@@ -10,6 +10,11 @@ function o() {
 	fi;
 }
 
+function rmrf() {
+	find . -name "*.'$1'" -print0 -type f | xargs -0 rm -rf
+}
+
+
 # Simple calculator
 function calc() {
 	local result="";
