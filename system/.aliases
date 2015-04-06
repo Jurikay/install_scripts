@@ -14,7 +14,7 @@ alias jurek="echo hallo"
 alias hosts='sudo edit /etc/hosts'
 
 alias pizza="countdown 15"
-
+alias cdj="cd /Users/jurekbaumann/Dropbox/System/juridotfiles"
 # `cat` with colors. requires Pygments installed.
 # sudo easy_install -U Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'

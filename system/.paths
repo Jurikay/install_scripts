@@ -11,3 +11,8 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 
 # Setting PATH for GNU core Uitilities
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+
+# remove duplicate path entries
+export PATH=$(echo $PATH | awk -F: '
+{ for (i = 1; i <= NF; i++) arr[$i]; }
+END { for (i in arr) printf "%s:" , i; printf "\n"; } ')
