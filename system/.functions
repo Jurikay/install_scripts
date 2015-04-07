@@ -1,6 +1,27 @@
 # Always list directory contents upon 'cd'
 function cd() { builtin cd "$@" && gls -hFl --color=auto; }
 
+# PHP Dev Server
+function devserver() {
+	local port="${1:-4000}";
+	local ip=$(ipconfig getifaddr en0);
+	browser-sync start --proxy "${ip}:${port}";
+
+	php -S "${ip}:${port}";
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
 # `o` with no arguments opens the current directory, otherwise opens the given location
 function o() {
 	if [ $# -eq 0 ]; then

@@ -1,18 +1,21 @@
 #   Set Paths
 #   ------------------------------------------------------------
+PATH=/opt/local/bin
+PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin
+PATH=$PATH:/usr/local/opt/php56/bin
+PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
+PATH=$PATH:/opt/local/bin
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:/usr/local/git/bin
+PATH=$PATH:/usr/local/mysql/bin
+PATH=$PATH:/usr/local
+PATH=$PATH:/usr/bin
+PATH=$PATH:/sbin
+PATH=$PATH:/usr/sbin
+PATH=$PATH:/sw/bin
+PATH=$PATH:/bin
+PATH=$PATH:/urs/local/sbin
+PATH=$PATH:/usr/local/bin/user
+PATH=$PATH:/opt/local/sbin
 
-
-export PATH="/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin/user"
-
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-
-# Setting PATH for Python 3.5
-export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-
-# Setting PATH for GNU core Uitilities
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
-
-# remove duplicate path entries
-export PATH=$(echo $PATH | awk -F: '
-{ for (i = 1; i <= NF; i++) arr[$i]; }
-END { for (i in arr) printf "%s:" , i; printf "\n"; } ')
+export PATH
