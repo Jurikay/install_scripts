@@ -9,7 +9,7 @@ alias vncs="networksetup -setairportpower en1 off; open vnc://jurekbaumann@192.1
 alias vncmb="open vnc://macbook.local"
 alias vnchm="open vnc://hackmac.local"
 alias vncsmb="open vnc://192.168.178.46"
-alias jurek="echo hallo"
+alias vncsr="open vnc://jurekbaumann@2qr9dhgvj8g0chqk.myfritz.net:49876"
 
 alias hosts='sudo edit /etc/hosts'
 
