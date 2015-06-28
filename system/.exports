@@ -1,14 +1,13 @@
-#   Set Default Editor
-    export EDITOR=/usr/bin/nano
+# Set Default Editor
+export EDITOR=/usr/bin/nano
 
-#   Set default blocksize for ls, df, du
+# Set default blocksize for ls, df, du
 
-    export BLOCKSIZE=1k
+export BLOCKSIZE=1k
 
-   export CLICOLOR=1
-   #export LSCOLORS=ExFxBxDxCxegedabagacad
-   export LSCOLORS=exfxcxdxbxexexaxaxfxfx
-
+export CLICOLOR=1
+#export LSCOLORS=ExFxBxDxCxegedabagacad
+export LSCOLORS=exfxcxdxbxexexaxaxfxfx
 
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="${yellow}";
@@ -25,3 +24,10 @@ export HISTFILESIZE="${HISTSIZE}";
 
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
+
+# Homebrew options
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_NO_EMOJI=1
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X" 
