@@ -4,6 +4,7 @@ alias gbdown="rsync -avzh /Volumes/Gutachten\ Blunk/public_html /Users/jurekbaum
 
 alias rbw="sudo bless -mount /Volumes/Windows -setBoot; sudo shutdown -r now -nextonly"
 
+alias bci="brew cask install"
 
 alias serienliste="open /Volumes/Serien/Pyload/pycfg/SJ.txt"
 # 
