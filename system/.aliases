@@ -4,10 +4,14 @@ alias gbdown="rsync -avzh /Volumes/Gutachten\ Blunk/public_html /Users/jurekbaum
 
 alias rbw="sudo bless -mount /Volumes/Windows -setBoot; sudo shutdown -r now -nextonly"
 
+alias bi="brew install"
+
 alias bci="brew cask install"
+alias bcs="brew cask search"
+alias bcu="brew cask uninstall"
 
 alias serienliste="open /Volumes/Serien/Pyload/pycfg/SJ.txt"
-# 
+alias b="brew"
 alias bud="brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup"
 alias syncsubl="rsync -av --force --delete --size-only --exclude '.DS_Store' --exclude 'Cache' --exclude 'Index' --exclude 'Local' --exclude 'User/Preferences.sublime-settings' /Users/jurekbaumann/Library/Application\ Support/Sublime\ Text\ 3/ /Volumes/jurekbaumann/Library/Application\ Support/Sublime\ Text\ 3"
 alias vncs="networksetup -setairportpower en1 off; open vnc://jurekbaumann@192.168.178.46; networksetup -setairportpower en1 on"
@@ -15,8 +19,10 @@ alias vncmb="open vnc://jurekbaumann@192.168.178.35"
 alias vnchm="open vnc://hackmac.local"
 alias vncsmb="open vnc://192.168.178.46"
 alias vncsr="open vnc://jurekbaumann@2qr9dhgvj8g0chqk.myfritz.net:49876"
-
+alias sshs="ssh 2qr9dhgvj8g0chqk.myfritz.net -p 49875"
 alias hosts='sudo edit /etc/hosts'
+
+alias softreboot="sudo launchctl reboot userspace"
 
 alias pizza="countdown 15"
 alias cdj="cd /Users/jurekbaumann/Dropbox/System/juridotfiles"
