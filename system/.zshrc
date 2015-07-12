@@ -87,3 +87,6 @@ eval $(gdircolors -b $ZSH/.dircolors)
 
 source $ZSH/zsh-syntax-highlighting-filetypes.zsh
 
+# Eval rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+

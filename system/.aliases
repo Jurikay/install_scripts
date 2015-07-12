@@ -32,8 +32,13 @@ alias hosts='sudo edit /etc/hosts'
 
 alias softreboot="sudo launchctl reboot userspace"
 
-alias pizza="countdown 15"
 alias cdj="cd /Users/jurekbaumann/Dropbox/System/juridotfiles"
+
+# Mehr oder weniger sinnvoll
+alias pizza="countdown 15"
+alias matrix="cmatrix -abfu3"
+
+
 # `cat` with colors. requires Pygments installed.
 # sudo easy_install -U Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'

@@ -31,3 +31,6 @@ export HOMEBREW_NO_EMOJI=1
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X" 
+
+# Rbenv homebrew config
+export RBENV_ROOT=/usr/local/var/rbenv
