@@ -17,9 +17,10 @@ alias bud="brew update -v && brew upgrade -v && brew cleanup && brew cask cleanu
 alias bcc="brew cleanup && brew cask cleanup"
 
 # Edit Pyload SJ.py Liste
-alias serienliste="mount afp://192.168.178.46/Serien; open /Volumes/Serien/Pyload/pycfg/SJ.txt"
+alias serienliste="mount -t afp afp://jurekbaumann:qwe@192.168.178.46/Serien ./Serien; open /Users/jurekbaumann/Serien/Pyload/pycfg/SJ.txt"
 
 # VNC and SSH aliases
+alias vnci="open vnc://iphone.local"
 alias vncs="open vnc://jurekbaumann@192.168.178.46"
 alias vncmb="open vnc://jurekbaumann@192.168.178.35"
 alias vnchm="open vnc://hackmac.local"
