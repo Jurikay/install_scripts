@@ -7,6 +7,17 @@ alias gbdown="rsync -avzh /Volumes/Gutachten\ Blunk/public_html /Users/jurekbaum
 # Reboot to Windows (under construction)
 alias rbw="sudo bless -mount /Volumes/Windows -setBoot; sudo shutdown -r now -nextonly"
 
+# Receiver Telnet
+alias mo="echo -e 'MO\r'|nc -v 192.168.178.67 23"
+alias mf="echo -e 'MF\r'|nc -v 192.168.178.67 23"
+alias rhm="echo -e '15FN\r'|nc -v 192.168.178.67 23"
+alias rleise="echo -e '061VL\r'|nc -v 192.168.178.67 23"
+alias rmittel="echo -e '091VL\r'|nc -v 192.168.178.67 23"
+alias rlaut="echo -e '131VL\r'|nc -v 192.168.178.67 23"
+alias rstfu="echo -e '000VL\r'|nc -v 192.168.178.67 23"
+alias vu="echo -e 'VU\r'|nc -v 192.168.178.67 23"
+alias vd="echo -e 'VD\r'|nc -v 192.168.178.67 23"
+
 # Brew Shortcuts
 alias b="brew"
 alias bi="brew install"
@@ -34,6 +45,8 @@ alias hosts='sudo edit /etc/hosts'
 alias softreboot="sudo launchctl reboot userspace"
 
 alias cdj="cd /Users/jurekbaumann/Dropbox/System/juridotfiles"
+
+alias st="speedtest_cli --bytes --simple"
 
 # Mehr oder weniger sinnvoll
 alias pizza="countdown 15"
