@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Install command-line tools using Homebrew.
+
+
+# Keep-alive: update existing `sudo` time stamp until the script has finished.
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Essential
+brew cask install dropbox
+brew cask install alfred
+brew cask install iterm2-nightly
+brew cask install sublime-text-dev
+brew cask install bettertouchtool
+brew cask install google-chrome-dev
+brew cask install colorpicker-skalacolor
+brew cask install bartender
+brew cask install retinizer
+brew cask install filebot
+brew cask install appcleaner
+brew cask install the-unarchiver
+
+# Advanced
+brew cask install mplayerx
+brew cask install find-any-file
+brew cask install github
+brew cask install steam
+brew cask install battle-net
+brew cask install teamspeak-client
+brew cask install daisydisk-beta
+brew cask install mkvtools
+brew cask install vlc
+brew cask install launchcontrol
+brew cask install mkvtools
+brew cask install betterzipql
+brew cask install qlcolorcode
+brew cask install qlimagesize
+brew cask install qlstephen
+brew cask install qlvideo

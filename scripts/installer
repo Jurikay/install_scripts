@@ -1,29 +1,43 @@
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #!/usr/bin/env bash
+function echo2() {
+    echo $(tput setaf 2)"$1"$(tput sgr0)
+}
+function echo3() {
+    echo $(tput setaf 3)"$1"$(tput sgr0)
+}
+function echo4() {
+    echo $(tput setaf 4)"$1"$(tput sgr0)
+}
+function echo5() {
+    echo $(tput setaf 5)"$1"$(tput sgr0)
+}
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Jureks install os X Script
 clear
-echo "Hallo! Ich konfiguriere dein OS!"
+echo4 "Hallo!"
+sleep .1
+echo4 "Ich konfiguriere dein OS!"
 sleep .5
-echo 'Willst du wirklich fortfahren?'
+echo4 'Willst du wirklich fortfahren?'
 echo 'y / n'
 read proceed
 [[ "$proceed" == 'n' ]] && exit -0
 
 #Frage vorab nach dem Passwort
 echo ""
-echo "Okay als erstes bräuchte ich dein Passwort"
+echo4 "Okay als erstes bräuchte ich dein Passwort"
 sudo -v
 
 #Frage nach oh-my-zsh
 echo ""
-echo "Willst du zsh verwenden und oh-my-zsh installieren?"
+echo4 "Willst du zsh verwenden und oh-my-zsh installieren?"
 echo 'y / n'
 read usezsh
 [[ "$usezsh" == 'y' ]] && curl -L http://install.ohmyz.sh | sh
 
 #Install Homebrew (http://brew.sh/)
 echo ""
-echo "Als nächstes installieren wir Homebrew"
+echo4 "Als nächstes installieren wir Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor; brew update; brew upgrade; brew cleanup; brew install caskroom/cask/brew-cask
 clear
@@ -36,35 +50,42 @@ sleep .5
 
 #Frage nach Java
 echo ""
-echo 'Willst du die aktuelle Java verion?'
+echo4 'Willst du die aktuelle Java verion?'
 echo 'y / n'
 read javaja
 [[ "$javaja" == 'y' ]] && java -version
 
 #Frage nach brew stuff
 echo ""
-echo "sollen wir brauchbare Tools mit brew brauen?"
+echo4 "sollen wir brauchbare Tools mit brew brauen?"
 echo "y / n"
 read brewstuff
 [[ "$brewstuff" == 'y' ]] && bash -v $HOME/dev/scripts/brew
 
+#Frage nach brew cask
+echo ""
+echo4 "sollen wir Programme via Brew Cask installieren?"
+echo "y / n"
+read brewcask
+[[ "$brewscask" == 'y' ]] && bash -v $HOME/dev/scripts/brewcask
+
 #Frage nach Os X Config
 echo ""
-echo "Soll ich diverse Os X Funktionen konfigurieren?"
+echo4 "Soll ich diverse Os X Funktionen konfigurieren?"
 echo "y / n"
 read defaults
 [[ "$defaults" == 'y' ]] && bash -v $HOME/dev/osx/defaults
 
 #Frage nach Programmen
-echo ""
-echo "Soll ich Downloadlinks für essenzielle Programme öffnen?"
-echo "y / n"
-read programme
-[[ "$programme" == 'y' ]] && bash -v $HOME/dev/scripts/installieren
+#echo ""
+#echo "Soll ich Downloadlinks für essenzielle Programme öffnen?"
+#echo "y / n"
+#read programme
+#[[ "$programme" == 'y' ]] && bash -v $HOME/dev/scripts/installieren
 
 #Frage nach UI
 echo ""
-echo "Sollen Finder und Interface Einstellungen vorgenommen werden?"
+echo4 "Sollen Finder und Interface Einstellungen vorgenommen werden?"
 echo "y / n"
 read configosx
 [[ "$configosx" == 'y' ]] && bash -v $HOME/dev/osx/configosx
