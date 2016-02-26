@@ -60,42 +60,42 @@ echo ""
 echo4 "sollen wir brauchbare Tools mit brew brauen?"
 echo "y / n"
 read brewstuff
-[[ "$brewstuff" == 'y' ]] && bash -v $HOME/dev/scripts/brew
+[[ "$brewstuff" == 'y' ]] && bash -v $HOME/juridotfiles/scripts/brew
 
 #Frage nach brew cask
 echo ""
 echo4 "sollen wir Programme via Brew Cask installieren?"
 echo "y / n"
 read brewcask
-[[ "$brewscask" == 'y' ]] && bash -v $HOME/dev/scripts/brewcask
+[[ "$brewscask" == 'y' ]] && bash -v $HOME/juridotfiles/scripts/brewcask
 
 #Frage nach Os X Config
 echo ""
 echo4 "Soll ich diverse Os X Funktionen konfigurieren?"
 echo "y / n"
 read defaults
-[[ "$defaults" == 'y' ]] && bash -v $HOME/dev/osx/defaults
+[[ "$defaults" == 'y' ]] && bash -v $HOME/juridotfiles/osx/defaults
 
 #Frage nach Programmen
 #echo ""
 #echo "Soll ich Downloadlinks für essenzielle Programme öffnen?"
 #echo "y / n"
 #read programme
-#[[ "$programme" == 'y' ]] && bash -v $HOME/dev/scripts/installieren
+#[[ "$programme" == 'y' ]] && bash -v $HOME/juridotfiles/scripts/installieren
 
 #Frage nach UI
 echo ""
 echo4 "Sollen Finder und Interface Einstellungen vorgenommen werden?"
 echo "y / n"
 read configosx
-[[ "$configosx" == 'y' ]] && bash -v $HOME/dev/osx/configosx
+[[ "$configosx" == 'y' ]] && bash -v $HOME/juridotfiles/osx/configosx
 
 #Frage nach dotfiles
 echo ""
 echo "Sollen juris dotfiles in den benutzerordner kopiert werden?"
 echo "y / n"
 read dotfiles
-[[ "$dotfiles" == 'y' ]] && /bin/cp -f $HOME/dev/.bash_profile $HOME 
+[[ "$dotfiles" == 'y' ]] && /bin/cp -f $HOME/juridotfiles/.bash_profile $HOME 
 
 echo"So fertig"
 

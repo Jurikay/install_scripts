@@ -7,6 +7,17 @@
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
+# Make the animation when hiding/showing the Dock faster
+defaults write com.apple.dock autohide-time-modifier -float 0.33
+
+# Set sidebar icon size to medium
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+# Change Screenshot location
+defaults write com.apple.screencapture location ~/Screenshots
+
+# Disable Dock autohide delay
+defaults write com.apple.Dock autohide-delay -float 0
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -15,7 +26,7 @@ sudo nvram SystemAudioVolume=" "
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Increase window resize speed for Cocoa applications. default 0.2
@@ -68,16 +79,19 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Screen                                                                      #
 ###############################################################################
 
-
-# Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
-
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
+
+#Use Liststyle as default
+defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+
+# Set Homefolder as default Finder location
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -105,6 +119,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Enable spring loading for directories
 defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+# Remove the spring loading delay for directories
+defaults write NSGlobalDomain com.apple.springing.delay -float 0
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
